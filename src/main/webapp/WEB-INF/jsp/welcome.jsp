@@ -11,7 +11,7 @@
 <!--	<spring:url value="/css/custom.css" var="springCss" />
 	<link href="${springCss}" rel="stylesheet" /> -->
 
-<c:url value="/resources/css/custom.css" var="jstlCss" />
+<c:url value="/css/custom.css" var="jstlCss" />
 <link href="${jstlCss}" rel="stylesheet" />
 
 </head>
@@ -33,7 +33,7 @@
 
 
         <div>
-            <img src="/resources/img/money.jpg" class="img-fluid" alt="Responsive image">
+            <img src="/img/money.jpg" class="img-fluid" alt="Responsive image">
             <div class="carousel-caption ">
 
  <div class="inner-caption">

@@ -8,7 +8,7 @@
             base-package="com.github.perscholas">
     </context:component-scan>
 
-   <mvc:resources mapping="/resources/**" location="/resources/" />
+   <mvc:resources mapping="/resources/**" location="/resources/static" />
 
     <bean
             id="viewResolver"
