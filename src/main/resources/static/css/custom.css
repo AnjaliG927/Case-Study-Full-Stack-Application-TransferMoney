@@ -26,3 +26,43 @@ body {
 .inner-caption{
 text-content:center;
 }
+
+.form-heading {
+    text-align: center;
+    text-transform: uppercase;
+}
+.form-signin {
+    max-width: 360px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    padding: 10px;
+    font-size: 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+    z-index: 3;
+}
+.form-signin input, .form-signin button {
+    margin-top: 10px;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.has-error {
+    color: #ff0000;
+    line-height: 1;
+    font-size: 14px;
+}
+.center_div{
+    margin: 0 auto;
+    width:80%
+}

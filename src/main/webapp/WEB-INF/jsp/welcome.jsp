@@ -8,9 +8,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-<!--	<spring:url value="/css/custom.css" var="springCss" />
-	<link href="${springCss}" rel="stylesheet" /> -->
-
 <c:url value="/css/custom.css" var="jstlCss" />
 <link href="${jstlCss}" rel="stylesheet" />
 
@@ -23,10 +20,10 @@
         </a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link active" href="../jsp/login.jsp">Sign In</a>
+                <a class="nav-link active" href="/login">Sign In</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../jsp/register.jsp">Sign Up</a>
+                <a class="nav-link" href="/register">Sign Up</a>
             </li>
         </ul>
     </nav>
