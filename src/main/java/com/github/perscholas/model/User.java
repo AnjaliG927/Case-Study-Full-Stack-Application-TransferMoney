@@ -1,11 +1,14 @@
 package com.github.perscholas.model;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
+import static javax.persistence.CascadeType.ALL;
 
 
 @Entity
-@Table(name="user_table")
+
+@Table(name="user_table" )
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,6 +20,31 @@ public class User {
     private String email;
     private Date birthdate;
     private Character gender;
+
+    @OneToMany(cascade=ALL, mappedBy="user")
+    private Set<TransferAccount> accountSet;
+
+
+    public User(String username, String firstName, String lastName, String password, String email, Date birthdate, Character gender) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.email = email;
+        this.birthdate = birthdate;
+        this.gender = gender;
+    }
+
+    public User() {
+    }
+
+    public Set<TransferAccount> getAccountSet() {
+        return accountSet;
+    }
+
+    public void setAccountSet(Set<TransferAccount> accountSet) {
+        this.accountSet = accountSet;
+    }
 
     @Transient // don't persist; not a column
     private String passwordConfirm;
