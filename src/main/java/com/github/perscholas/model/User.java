@@ -1,5 +1,12 @@
 package com.github.perscholas.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -13,27 +20,32 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
+    @NotNull
     private String username;
+    @NotNull
     private String firstName;
+    @NotNull
     private String lastName;
+
+    @NotNull
+    @Size(min = 8, max = 15)
+    @Pattern(regexp = "\\S+", message = "Spaces are not allowed")
     private String password;
+
+    @NotBlank(message = "Email is mandatory")
+    @Email(regexp = ".+@.+\\..+")
     private String email;
+
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthdate;
     private Character gender;
 
-    @OneToMany(cascade=ALL, mappedBy="user")
-    private Set<TransferAccount> accountSet;
+    //@JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL)
+    @ElementCollection
+   private Set<TransferAccount> accountSet;
 
-
-    public User(String username, String firstName, String lastName, String password, String email, Date birthdate, Character gender) {
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.email = email;
-        this.birthdate = birthdate;
-        this.gender = gender;
-    }
 
     public User() {
     }
@@ -97,6 +109,7 @@ public class User {
         this.email = email;
     }
 
+
     public Date getBirthdate() {
         return birthdate;
     }
@@ -119,5 +132,14 @@ public class User {
 
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
+    }
+
+    @Override
+    public String toString() {
+        try {
+            return new ObjectMapper().writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

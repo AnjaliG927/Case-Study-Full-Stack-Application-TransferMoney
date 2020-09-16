@@ -9,19 +9,22 @@ public class TransferAccount {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long accountId;
     private String bankName;
+    private String accountNum;
     private String preference;
-@ManyToOne()
-@JoinColumn(name="userId", nullable=false, updatable=false)
+
+    @ManyToOne(cascade = CascadeType.ALL)
     private User user;
 
     public TransferAccount() {
     }
 
-    public TransferAccount(String bankName, String preference, User user) {
-        this.bankName = bankName;
-        this.preference = preference;
-        this.user = user;
 
+    public String getAccountNum() {
+        return accountNum;
+    }
+
+    public void setAccountNum(String accountNum) {
+        this.accountNum = accountNum;
     }
 
     public Long getAccountId() {

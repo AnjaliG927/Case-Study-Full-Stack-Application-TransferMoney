@@ -1,4 +1,4 @@
-package com.github.perscholas;
+package com.github.perscholas.controllers;
 
 import com.github.perscholas.model.User;
 import org.springframework.stereotype.Controller;
@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class UserController {
-    @GetMapping(value="/welcome")
-    String getLandingPage(Model model) {
-       return "welcome";
+public class welcomeController {
+    @GetMapping(value = {"/", "/welcome"})
+    public String welcome(Model model) {
+        return "welcome";
     }
+
 
     @GetMapping(value = "/register")
     public String registration(Model model) {
@@ -21,7 +22,6 @@ public class UserController {
     }
     @GetMapping(value = "/login")
     public String login(Model model) {
-        model.addAttribute("userForm", new User());
         return "login";
     }
 }
