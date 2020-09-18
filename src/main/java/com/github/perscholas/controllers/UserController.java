@@ -9,10 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
@@ -55,17 +52,24 @@ public class UserController {
 
 
 
-//    @GetMapping(value = "/login")
-//    public String login(Model model, String error, String logout) {
-//        if (error != null) {
-//            model.addAttribute("error", "Your username and password are invalid.");
-//        }
-//        if (logout != null) {
-//            model.addAttribute("message", "You have logged out successfully.");
-//        }
-//
-//        return "login";
-//    }
+    @GetMapping(value = "/login")
+    public String login(Model model, String error, String logout) {
+        if (error != null) {
+            model.addAttribute("error", "Your username and password are invalid.");
+        }
+        if (logout != null) {
+            model.addAttribute("message", "You have logged out successfully.");
+        }
+
+        return "login";
+    }
+
+    @PostMapping(value = "/send")
+    public String sendMoney(){
+        return "userDashboard";
+    }
+
+
 
 }
 

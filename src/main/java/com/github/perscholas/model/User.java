@@ -4,18 +4,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.format.annotation.DateTimeFormat;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import java.time.LocalDate;
 import java.util.Date;
+
 import java.util.Set;
 
-import static javax.persistence.CascadeType.ALL;
+
 
 
 @Entity
-
-@Table(name="user_table" )
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,14 +40,16 @@ public class User {
     private Date birthdate;
     private Character gender;
 
-    //@JsonIgnore
+   // @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL)
-    @ElementCollection
    private Set<TransferAccount> accountSet;
+
 
 
     public User() {
     }
+
+
 
     public Set<TransferAccount> getAccountSet() {
         return accountSet;
@@ -133,6 +134,7 @@ public class User {
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
     }
+
 
     @Override
     public String toString() {
