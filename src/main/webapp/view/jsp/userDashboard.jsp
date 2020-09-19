@@ -9,18 +9,21 @@
 <h1>Welcome! ${userFirstName}</h1>
 
 <form:form method="POST" action="send" >
-    <div id="box">
-        <h2>Send Money</h2>
-        <table>
+    <div id="box" >
+        <h2 style="text-align: center">Send Money</h2>
+        <table style="margin: 0px auto">
             <tr>
                 <td>
-                    <input id="fromAmount" type="text" size="15" placeholder="USD" value="1">
+                    <label>From</label>
+                    <input id="fromAmount" type="text" size="15" placeholder="USD" value="USD">
                 </td>
                 <td>
                     <select  id="from" onchange="currencyCoverter();">
+                        <label>To</label>
                         <option value="AUD">Australian Dollar(AUD)</option>
                     </select>
                 </td>
+                <td></td>
             </tr>
             <tr> <td>
                 <input id="toAmount" type="text" size="15" placeholder="USD" disabled>

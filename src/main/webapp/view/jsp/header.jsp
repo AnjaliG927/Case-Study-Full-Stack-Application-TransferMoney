@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<%@page language="java" contentType="text/html"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -19,12 +20,12 @@
         <a class="navbar-brand " href="welcome.jsp">
             <h3>TransferMoney</h3>
         </a>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link active" href="../jsp/login.jsp">Sign In</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../jsp/register.jsp">Sign Up</a>
-            </li>
-        </ul>
+         <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="${pageContext.servletContext.contextPath}/login">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.servletContext.contextPath}/register">Sign Up</a>
+                    </li>
+                </ul>
     </nav>

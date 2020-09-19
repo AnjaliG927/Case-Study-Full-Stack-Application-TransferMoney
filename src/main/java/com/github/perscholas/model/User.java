@@ -9,12 +9,11 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Date;
 
+import java.util.List;
 import java.util.Set;
 
-
-
-
 @Entity
+@Table(name="user_table")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,7 +43,9 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL)
    private Set<TransferAccount> accountSet;
 
-
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="transactionId")
+    private List<TransactionDetails> transactionDetailsList;
 
     public User() {
     }

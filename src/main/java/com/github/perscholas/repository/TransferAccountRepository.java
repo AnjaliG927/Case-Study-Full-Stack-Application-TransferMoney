@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TransferAccountRepository extends CrudRepository<TransferAccount, Long> {
+public interface TransferAccountRepository extends JpaRepository<TransferAccount, Long> {
     List<TransferAccount> findAll();
     TransferAccount findByAccountNum(String accountNum);
 }

@@ -66,3 +66,10 @@ text-content:center;
     margin: 0 auto;
     width:80%
 }
+#box{
+    height:150px;
+    width:300px;
+    margin:0px auto;
+    border:solid 2px;
+
+}

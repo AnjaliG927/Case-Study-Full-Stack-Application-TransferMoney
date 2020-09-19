@@ -7,20 +7,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/welcome")
+
 public class welcomeController {
-    @GetMapping(value = "/")
+
+    @GetMapping(value = {"/", "/welcome"})
     public String welcome(Model model) {
         return "welcome";
     }
 
 
-    @GetMapping(value = "/welcome/register")
+    @GetMapping(value = "/register")
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
         return "register";
     }
-    @GetMapping(value = "/welcome/login")
+    @GetMapping(value = "/login")
     public String login(Model model) {
         return "login";
     }
