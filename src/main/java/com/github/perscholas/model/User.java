@@ -17,11 +17,18 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="USERID")
     private Long userId;
+
+    @Column
     @NotNull
     private String username;
+
+    @Column(name = "FIRSTNAME")
     @NotNull
     private String firstName;
+
+    @Column(name = "LASTNAME")
     @NotNull
     private String lastName;
 

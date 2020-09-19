@@ -67,8 +67,9 @@ text-content:center;
     width:80%
 }
 #box{
-    height:150px;
-    width:300px;
+    top:50px;
+    height:550px;
+    width:500px;
     margin:0px auto;
     border:solid 2px;
 

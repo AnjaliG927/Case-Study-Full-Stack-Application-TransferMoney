@@ -67,5 +67,12 @@ public class UserService  {
         userRepository.save(user);
     }
 
+    public Boolean validateUser(String username,String password) {
+        User user = findByUsername(username);
+        if (user != null && user.getPassword().equals(password)) {
+            return true;
+        }
+        return false;
+    }
 }
 

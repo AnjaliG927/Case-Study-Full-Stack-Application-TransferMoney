@@ -52,18 +52,9 @@ public class UserController {
 
 
 
-    @GetMapping(value = "/login-valid")
-    public String login(Model model, String error, String logout) {
-        if (error != null) {
-            model.addAttribute("error", "Your username and password are invalid.");
-        }
-        if (logout != null) {
-            model.addAttribute("message", "You have logged out successfully.");
-        }
 
-        return "login";
-    }
 
+    //TODO
     @PostMapping(value = "/send")
     public String sendMoney(){
         return "userDashboard";

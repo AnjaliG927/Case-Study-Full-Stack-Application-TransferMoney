@@ -22,16 +22,16 @@
         </a>
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-             <a class="nav-link" href="../jsp/sendMoney.jsp" >Send Money</a>
+             <a class="nav-link active" href="${pageContext.servletContext.contextPath}/sendMoney" >Send Money</a>
         </li>
         <li class="nav-item">
-             <a class="nav-link" href="../jsp/transferHistory.jsp">Transfer History</a>
+             <a class="nav-link active" href="${pageContext.servletContext.contextPath}/transferHistory">Transfer History</a>
         </li>
          <li class="nav-item">
-                     <a class="nav-link" href="../jsp/userProfile.jsp" >Profile</a>
+                     <a class="nav-link active" href="${pageContext.servletContext.contextPath}/userProfile" >Profile</a>
                 </li>
         <li class="nav-item">
-              <a class="nav-link active" href="../jsp/logout.jsp">Sign out</a>
+              <a class="nav-link active" href="${pageContext.servletContext.contextPath}/logout">Sign out</a>
         </li>
 
         </ul>
