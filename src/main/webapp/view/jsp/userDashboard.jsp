@@ -6,12 +6,12 @@
 
 <jsp:include page="header_user.jsp"/>
 <div class="container">
-<form:form method="POST" action="send" >
+<form:form method="POST" action="sendMoney" >
 <h2 style="left:50px;">Welcome! ${sessionScope.currentUser}</h2>
 <h3 style="text-align:center">Send Money Online</h3>
 
     <div class="container">
-    <h4>Your receiver’s country and send amount</h4>
+    <h4>Your receiver&apos;s country and send amount</h4>
          <div class="form-group">
            <label><b>From</b></label>
            <input class="form-control mb-3" type="text" placeholder="United States (USD)" readonly>
