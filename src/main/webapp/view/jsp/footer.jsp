@@ -1,4 +1,4 @@
- <footer class="container">
+ <footer class="container" >
         <p>&copy; TransferMoney-2020</p>
     </footer>
 

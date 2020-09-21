@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:olivedrab">
+	<nav class="navbar navbar-expand-md navbar-dark mb-4" style="background-color:olivedrab">
         <a class="navbar-brand " href="welcome.jsp">
             <h3>TransferMoney</h3>
         </a>
