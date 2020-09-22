@@ -1,5 +1,8 @@
 package com.github.perscholas.model;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.persistence.*;
 
 @Entity
@@ -58,4 +61,15 @@ public class TransferAccount {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        try {
+            return new ObjectMapper().writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }

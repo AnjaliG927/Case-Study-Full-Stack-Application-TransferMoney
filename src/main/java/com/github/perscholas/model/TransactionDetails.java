@@ -1,5 +1,8 @@
 package com.github.perscholas.model;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -104,6 +107,16 @@ public class TransactionDetails {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+
+    @Override
+    public String toString() {
+        try {
+            return new ObjectMapper().writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

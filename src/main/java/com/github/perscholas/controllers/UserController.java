@@ -5,6 +5,8 @@ import com.github.perscholas.service.UserService;
 import com.github.perscholas.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -48,7 +50,10 @@ public class UserController {
         model.addAttribute("userFirstName", userForm.getFirstName());
         return "userDashboard";
     }
-
+    @GetMapping(value = "/show/{id}")
+    public ResponseEntity<User> readById(@PathVariable Long id) {
+        return new ResponseEntity<>(userService.readById(id), HttpStatus.OK);
+    }
 
 
 

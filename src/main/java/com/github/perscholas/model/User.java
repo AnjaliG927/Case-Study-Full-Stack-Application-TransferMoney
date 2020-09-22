@@ -25,11 +25,11 @@ public class User {
     private String username;
 
     @Column(name = "FIRSTNAME")
-    @NotNull
+
     private String firstName;
 
     @Column(name = "LASTNAME")
-    @NotNull
+
     private String lastName;
 
     @NotNull
@@ -37,25 +37,37 @@ public class User {
     @Pattern(regexp = "\\S+", message = "Spaces are not allowed")
     private String password;
 
+    @JsonIgnore
+    @Transient // don't persist; not a column
+    private String passwordConfirm;
+
     @NotBlank(message = "Email is mandatory")
     @Email(regexp = ".+@.+\\..+")
     private String email;
 
-    @NotNull
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date birthdate;
     private Character gender;
 
-   // @JsonIgnore
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL)
    private Set<TransferAccount> accountSet;
 
+    @JsonIgnore
     @OneToMany(cascade=CascadeType.ALL)
     @JoinColumn(name="transaction_id")
     private List<TransactionDetails> transactionDetailsList;
 
     public User() {
+    }
+
+    public User(Long userId, String username, String password, String email) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
     public List<TransactionDetails> getTransactionDetailsList() {
@@ -74,8 +86,7 @@ public class User {
         this.accountSet = accountSet;
     }
 
-    @Transient // don't persist; not a column
-    private String passwordConfirm;
+
 
     public String getFirstName() {
         return firstName;

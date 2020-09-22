@@ -1,5 +1,8 @@
 package com.github.perscholas.model;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -48,6 +51,13 @@ public class RecipientDetails {
     public void setRecipientBankName(String recipientBankName) {
         this.recipientBankName = recipientBankName;
     }
-
+    @Override
+    public String toString() {
+        try {
+            return new ObjectMapper().writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
