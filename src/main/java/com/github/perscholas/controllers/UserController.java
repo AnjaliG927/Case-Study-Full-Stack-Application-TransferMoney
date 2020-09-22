@@ -52,15 +52,5 @@ public class UserController {
 
 
 
-
-
-    //TODO
-    @PostMapping(value = "/send")
-    public String sendMoney(){
-        return "userDashboard";
-    }
-
-
-
 }
 

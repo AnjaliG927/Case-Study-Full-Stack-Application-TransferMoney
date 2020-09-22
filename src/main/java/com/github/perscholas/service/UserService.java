@@ -1,11 +1,14 @@
 package com.github.perscholas.service;
 
+import com.github.perscholas.model.TransactionDetails;
 import com.github.perscholas.model.User;
 import com.github.perscholas.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -13,7 +16,7 @@ public class UserService  {
     private UserRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository ) {
         this.userRepository = userRepository;
     }
 
@@ -74,5 +77,9 @@ public class UserService  {
         }
         return false;
     }
+
+
+
+
 }
 

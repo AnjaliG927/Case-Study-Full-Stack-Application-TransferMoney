@@ -43,6 +43,7 @@ public class User {
 
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date birthdate;
     private Character gender;
 
@@ -51,7 +52,7 @@ public class User {
    private Set<TransferAccount> accountSet;
 
     @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="transactionId")
+    @JoinColumn(name="transaction_id")
     private List<TransactionDetails> transactionDetailsList;
 
     public User() {

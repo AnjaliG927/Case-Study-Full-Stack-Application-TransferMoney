@@ -9,14 +9,22 @@ import java.util.Set;
 public class TransactionDetails {
     @Id
     @GeneratedValue(strategy =GenerationType.AUTO)
-    private Long transactionId;
+    @Column(name="transaction_id")
+    private Long transaction_id;
+    @Column(name="exchangerate")
     private String exchangeRate ;
+    @Column(name="fromcountry")
     private String fromCountry;
+    @Column(name="tocountry")
     private String toCountry;
+    @Column(name="status")
     private String status;
+    @Column(name="transactiondate")
+    @Temporal(TemporalType.DATE)
     private Date transactionDate;
-    @ManyToMany(cascade=CascadeType.ALL)
-    private Set<RecipientDetails> recipientDetails;
+
+    @ManyToOne(cascade=CascadeType.ALL)
+    private RecipientDetails recipientdetails;
 
     @ManyToOne(cascade=CascadeType.ALL)
     private User user;
@@ -32,12 +40,12 @@ public class TransactionDetails {
         this.user = user;
     }
 
-    public Set<RecipientDetails> getRecipientDetails() {
-        return recipientDetails;
+    public RecipientDetails getRecipientDetails() {
+        return recipientdetails;
     }
 
-    public void setRecipientDetails(Set<RecipientDetails> recipientDetails) {
-        this.recipientDetails = recipientDetails;
+    public void setRecipientDetails(RecipientDetails recipientDetails) {
+        this.recipientdetails = recipientDetails;
     }
 
     public Date getTransactionDate() {
@@ -49,11 +57,11 @@ public class TransactionDetails {
     }
 
     public Long getTransactionId() {
-        return transactionId;
+        return transaction_id;
     }
 
     public void setTransactionId(Long transactionId) {
-        this.transactionId = transactionId;
+        this.transaction_id = transaction_id;
     }
 
     public String getExchangeRate() {

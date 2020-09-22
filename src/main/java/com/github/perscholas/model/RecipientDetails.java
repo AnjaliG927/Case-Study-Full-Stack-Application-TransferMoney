@@ -10,10 +10,8 @@ public class RecipientDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long recipientId;
     private String recipientAccNum;
-    private String recipientBankNum;
+    private String recipientBankName;
 
-    @ManyToMany(cascade=CascadeType.ALL)
-    private Set<TransactionDetails> transactionDetails;
 
     public RecipientDetails() {
     }
@@ -34,19 +32,13 @@ public class RecipientDetails {
         this.recipientAccNum = recipientAccNum;
     }
 
-    public String getRecipientBankNum() {
-        return recipientBankNum;
+    public String getRecipientBankName() {
+        return recipientBankName;
     }
 
-    public void setRecipientBankNum(String recipientBankNum) {
-        this.recipientBankNum = recipientBankNum;
+    public void setRecipientBankName(String recipientBankName) {
+        this.recipientBankName = recipientBankName;
     }
 
-    public Set<TransactionDetails> getTransactionDetails() {
-        return transactionDetails;
-    }
 
-    public void setTransactionDetails(Set<TransactionDetails> transactionDetails) {
-        this.transactionDetails = transactionDetails;
-    }
 }

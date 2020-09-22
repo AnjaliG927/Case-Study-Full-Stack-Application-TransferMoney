@@ -25,7 +25,7 @@
              <a class="nav-link active" href="${pageContext.servletContext.contextPath}/sendMoney" >Send Money</a>
         </li>
         <li class="nav-item">
-             <a class="nav-link active" href="${pageContext.servletContext.contextPath}/transferHistory">Transfer History</a>
+             <a class="nav-link active" href="${pageContext.servletContext.contextPath}/transferHistory/${sessionScope.currentUser}">Transfer History</a>
         </li>
          <li class="nav-item">
                      <a class="nav-link active" href="${pageContext.servletContext.contextPath}/userProfile" >Profile</a>
