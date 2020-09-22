@@ -58,7 +58,13 @@ public class User {
     public User() {
     }
 
+    public List<TransactionDetails> getTransactionDetailsList() {
+        return transactionDetailsList;
+    }
 
+    public void setTransactionDetailsList(List<TransactionDetails> transactionDetailsList) {
+        this.transactionDetailsList = transactionDetailsList;
+    }
 
     public Set<TransferAccount> getAccountSet() {
         return accountSet;

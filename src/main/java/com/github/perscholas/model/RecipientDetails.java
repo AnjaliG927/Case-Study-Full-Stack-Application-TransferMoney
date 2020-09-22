@@ -9,11 +9,20 @@ public class RecipientDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long recipientId;
+    private String recipientname;
     private String recipientAccNum;
     private String recipientBankName;
 
 
     public RecipientDetails() {
+    }
+
+    public String getRecipientname() {
+        return recipientname;
+    }
+
+    public void setRecipientname(String recipientname) {
+        this.recipientname = recipientname;
     }
 
     public Long getRecipientId() {

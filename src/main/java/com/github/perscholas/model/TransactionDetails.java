@@ -19,6 +19,8 @@ public class TransactionDetails {
     private String toCountry;
     @Column(name="status")
     private String status;
+    @Column(name="amount")
+    private Long amount;
     @Column(name="transactiondate")
     @Temporal(TemporalType.DATE)
     private Date transactionDate;
@@ -30,6 +32,14 @@ public class TransactionDetails {
     private User user;
 
     public TransactionDetails() {
+    }
+
+    public Long getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Long amount) {
+        this.amount = amount;
     }
 
     public User getUser() {
@@ -95,4 +105,6 @@ public class TransactionDetails {
     public void setStatus(String status) {
         this.status = status;
     }
+
+
 }

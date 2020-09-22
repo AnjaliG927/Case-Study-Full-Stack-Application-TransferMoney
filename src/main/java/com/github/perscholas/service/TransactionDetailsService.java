@@ -29,7 +29,11 @@ public class TransactionDetailsService {
     }
 
     public List<TransactionDetails> findAllByUser(Long id) {
-        return transactionDetailsRepository.findAllTransactionsByUserId(id);
+        Iterable<TransactionDetails> transactionDetailsIterable = transactionDetailsRepository.findAllTransactionsByUserId(id);
+        List<TransactionDetails> transactionDetails = new ArrayList<>();
+        transactionDetailsIterable.forEach(transactionDetails::add);
+        return transactionDetails;
+
     }
 
 
