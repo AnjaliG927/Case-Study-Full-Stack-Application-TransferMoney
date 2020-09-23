@@ -6,7 +6,7 @@
 
 <jsp:include page="header_user.jsp"/>
 <div class="container">
-<form:form method="POST" action="sendMoney" >
+<form:form method="POST"   action="sendMoney" >
 <h2 style="left:50px;">Welcome! ${sessionScope.currentUser}</h2>
 <h3 style="text-align:center">Send Money Online</h3>
 
@@ -16,8 +16,7 @@
            <label><b>From</b></label>
            <input class="form-control mb-3" type="text" placeholder="United States (USD)" readonly>
            <label for="toCountry"><b>Send to</b></label>
-             <spring:bind path="toCountry">
-           <select class="form-control" id="toCountry" path="toCountry" name="dropdown" onchange="currencyConverter();" size="width:300px;">
+           <select class="form-control" id="toCountry" name="toCountry"  onchange="currencyConverter();" size="width:300px;">
              <option value="">Select a country</option>
              <option value="AUD">Australian dollar(AUD)</option>
              <option value="CNY">China (CNY)</option>
@@ -27,28 +26,25 @@
              <option value="AED">UAE (AED)</option>
              <option value="PHP">Philippines (PHP)</option>
            </select>
-             </spring:bind>
          </div>
        </div>
 
        <div class="container">
-         <div><b>$1 = <span id="display"></span></b></div>
+         <div><b>$1 =</b>  <input type="text" id="display" name="exchangeRate" size="8"  ></div>
        </div>
 
        <div class="container">
          <div class="row">
            <div class="col">
              <div class="input-group mb-3">
-                 <spring:bind path="fromAmount">
-               <input type="text" class="form-control" path="fromAmount" id="sendAmount" onkeyup="calculate();" placeholder="Send amount"
+
+               <input type="text" class="form-control" name="fromAmount" id="sendAmount" onkeyup="calculate();" placeholder="Send amount"
                  aria-label="Send amount" aria-describedby="basic-addon2">
-                 </spring:bind>
+
              </div>
            </div>
            <div class="col">
-               <spring:bind path="toAmount">
-             <input type="text" class="form-control" path="toAmount" placeholder="receive amount" id="receiveAmount">
-               </spring:bind>
+             <input type="text" class="form-control" name="toAmount" placeholder="receive amount" id="receiveAmount">
            </div>
 
          </div>

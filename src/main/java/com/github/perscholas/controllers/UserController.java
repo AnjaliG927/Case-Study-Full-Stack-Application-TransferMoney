@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,18 +41,21 @@ public class UserController {
 
     @PostMapping(value = "/save")
     public String registration(@Valid @ModelAttribute("userForm") User userForm,
-                                BindingResult bindingResult, Model model) {
+                               BindingResult bindingResult, Model model, HttpSession session) {
         User existing = userService.findByUsername(userForm.getUsername());
         if (existing != null) {
             bindingResult.rejectValue("username", null, "There is already an account registered with that username");
+        }else {
+            userValidator.validate(userForm, bindingResult);
+            if (bindingResult.hasErrors()) {
+                return "register";
+            }
+            
+            userService.create(userForm);
+            model.addAttribute("message", "Successfully created your account!");
+            return "login";
         }
-        userValidator.validate(userForm, bindingResult);
-        if (bindingResult.hasErrors()) {
-            return "register";
-        }
-        userService.create(userForm);
-        model.addAttribute("userFirstName", userForm.getFirstName());
-        return "userDashboard";
+        return "register";
     }
     @GetMapping(value = "/show/{id}")
     public ResponseEntity<User> readById(@PathVariable Long id) {

@@ -28,11 +28,14 @@ public class TransferController {
     }
 
     @PostMapping(value = "/sendMoney")
-    public String checkoutForm(@RequestParam("amount") String amount,
+    public String checkoutForm(@RequestParam("fromAmount") String amount,
                                @RequestParam("toCountry") String toCountry,
-                               Model model) {
+                               @RequestParam("exchangeRate") String exchangeRate,
+                              Model model) {
+        Integer amountInt=Integer.valueOf(amount.split(" ").);
         model.addAttribute("amount", amount);
         model.addAttribute("toCountry", toCountry);
+        model.addAttribute("exchangeRate", exchangeRate);
         System.out.println("sout"+amount+toCountry);
         return "checkoutForm";
     }

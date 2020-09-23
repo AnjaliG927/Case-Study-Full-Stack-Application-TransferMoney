@@ -28,17 +28,19 @@ public class LoginController {
                               @RequestParam("password") String password,
                               HttpSession session, Model model) {
 
-        if (!username.equals("") && !password.equals("")) {
+
             boolean isValid = userService.validateUser(username, password);
             if (isValid) {
                 session.setAttribute("currentUser",username);
+                User user=userService.findByUsername(username);
+                model.addAttribute("userFirstName", user.getFirstName());
                 return "userDashboard";
             }
-        } else {
+         else {
             model.addAttribute("error", "Your username and password are invalid.");
-
+                return "login";
         }
-        return "login";
+
 
     }
 

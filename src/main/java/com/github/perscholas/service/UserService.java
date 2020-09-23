@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -65,7 +66,7 @@ public class UserService {
         return updateById(id, UserInDatabase);
     }
 
-
+@Transactional
     public void create(User user) {
         user.setPassword(user.getPassword());
         userRepository.save(user);

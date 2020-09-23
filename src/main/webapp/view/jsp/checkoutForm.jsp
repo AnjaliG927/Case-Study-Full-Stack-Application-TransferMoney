@@ -19,14 +19,14 @@
                         <h6 class="my-0">From Country</h6>
                         <small class="text-muted">USA</small>
                     </div>
-                    <span class="text-muted">${amount}/span>
+                    <span class="text-muted">${amount}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0">To Country</h6>
                         <small class="text-muted">${toCountry}</small>
                     </div>
-                    <span class="text-muted">$8</span>
+                    <span class="text-muted">${amount*exchangeRate}</span>
                 </li>
 
                 <li class="list-group-item d-flex justify-content-between bg-light">

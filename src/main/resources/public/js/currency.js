@@ -9,11 +9,11 @@ function currencyConverter() {
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
     xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             var result = xmlhttp.responseText;
             var jsResult = JSON.parse(result);
             temp = jsResult["rates"][to];
-            document.getElementById("display").innerHTML = `${`${temp.toFixed(2)} ${to}`}`;
+            document.getElementById("display").value = `${`${temp.toFixed(2)} ${to}`}`;
         }
     }
 
