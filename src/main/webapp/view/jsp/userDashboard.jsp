@@ -16,7 +16,8 @@
            <label><b>From</b></label>
            <input class="form-control mb-3" type="text" placeholder="United States (USD)" readonly>
            <label for="toCountry"><b>Send to</b></label>
-           <select class="form-control" id="toCountry" onchange="currencyConverter();" size="width:300px;">
+             <spring:bind path="toCountry">
+           <select class="form-control" id="toCountry" path="toCountry" name="dropdown" onchange="currencyConverter();" size="width:300px;">
              <option value="">Select a country</option>
              <option value="AUD">Australian dollar(AUD)</option>
              <option value="CNY">China (CNY)</option>
@@ -24,8 +25,9 @@
              <option value="CAD">Canadian dollar (CAD)</option>
              <option value="EUR">Europe (EUR)</option>
              <option value="AED">UAE (AED)</option>
-             <option value="PHP">Philipines (PHP)</option>
+             <option value="PHP">Philippines (PHP)</option>
            </select>
+             </spring:bind>
          </div>
        </div>
 
@@ -37,12 +39,16 @@
          <div class="row">
            <div class="col">
              <div class="input-group mb-3">
-               <input type="text" class="form-control" id="sendAmount" onkeyup="calculate();" placeholder="Send amount"
+                 <spring:bind path="fromAmount">
+               <input type="text" class="form-control" path="fromAmount" id="sendAmount" onkeyup="calculate();" placeholder="Send amount"
                  aria-label="Send amount" aria-describedby="basic-addon2">
+                 </spring:bind>
              </div>
            </div>
            <div class="col">
-             <input type="text" class="form-control" placeholder="receive amount" id="receiveAmount">
+               <spring:bind path="toAmount">
+             <input type="text" class="form-control" path="toAmount" placeholder="receive amount" id="receiveAmount">
+               </spring:bind>
            </div>
 
          </div>

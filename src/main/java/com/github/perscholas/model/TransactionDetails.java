@@ -23,7 +23,7 @@ public class TransactionDetails {
     @Column(name="status")
     private String status;
     @Column(name="amount")
-    private Long amount;
+    private Double amount;
     @Column(name="transactiondate")
     @Temporal(TemporalType.DATE)
     private Date transactionDate;
@@ -37,11 +37,11 @@ public class TransactionDetails {
     public TransactionDetails() {
     }
 
-    public Long getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(Long amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

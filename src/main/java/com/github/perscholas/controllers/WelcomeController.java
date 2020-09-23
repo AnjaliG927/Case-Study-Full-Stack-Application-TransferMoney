@@ -22,7 +22,7 @@ public class WelcomeController {
         return "register";
     }
     @GetMapping(value = "/login")
-    public String login(Model model) {
+    public String login() {
         return "login";
     }
 }

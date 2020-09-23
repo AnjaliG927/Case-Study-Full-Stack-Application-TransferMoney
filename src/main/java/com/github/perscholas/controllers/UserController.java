@@ -41,7 +41,10 @@ public class UserController {
     @PostMapping(value = "/save")
     public String registration(@Valid @ModelAttribute("userForm") User userForm,
                                 BindingResult bindingResult, Model model) {
-
+        User existing = userService.findByUsername(userForm.getUsername());
+        if (existing != null) {
+            bindingResult.rejectValue("username", null, "There is already an account registered with that username");
+        }
         userValidator.validate(userForm, bindingResult);
         if (bindingResult.hasErrors()) {
             return "register";

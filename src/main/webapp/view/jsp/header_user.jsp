@@ -12,7 +12,7 @@
 
 <c:url value="/css/custom.css" var="jstlCss" />
 <link href="${jstlCss}" rel="stylesheet" />
-
+    <link href="form-validation.css" rel="stylesheet">
 </head>
 <body>
 

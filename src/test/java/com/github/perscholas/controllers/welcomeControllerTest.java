@@ -1,5 +1,6 @@
 package com.github.perscholas.controllers;
 
+import com.github.perscholas.model.User;
 import junit.framework.TestCase;
 
 public class welcomeControllerTest extends TestCase {
@@ -10,10 +11,10 @@ public class welcomeControllerTest extends TestCase {
         assertEquals(result, "welcome");
     }
 
-    public void testRegistration() {
-
-    }
 
     public void testLogin() {
+        WelcomeController homeController = new WelcomeController();
+        String result = homeController.login();
+        assertEquals(result, "login");
     }
 }

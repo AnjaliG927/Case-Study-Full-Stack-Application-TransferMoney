@@ -9,9 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -29,17 +28,21 @@ public class TransferController {
     }
 
     @PostMapping(value = "/sendMoney")
-    public String checkoutForm() {
-
+    public String checkoutForm(@RequestParam("amount") String amount,
+                               @RequestParam("toCountry") String toCountry,
+                               Model model) {
+        model.addAttribute("amount", amount);
+        model.addAttribute("toCountry", toCountry);
+        System.out.println("sout"+amount+toCountry);
         return "checkoutForm";
     }
 
     @GetMapping(value = "/transferHistory/{username}")
     public String getTransaction(@PathVariable String username, ModelMap model) {
         User user = userService.findByUsername(username);
-        List<TransactionDetails> transactionList=transactionDetailsService.findAllByUser(user.getUserId());
+        List<TransactionDetails> transactionList = transactionDetailsService.findAllByUser(user.getUserId());
         System.out.println(transactionList);
-        model.addAttribute("list",transactionList);
+        model.addAttribute("list", transactionList);
         return "transferHistory";
     }
 
