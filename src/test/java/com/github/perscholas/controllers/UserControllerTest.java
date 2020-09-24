@@ -35,7 +35,7 @@ public class UserControllerTest extends TestCase {
             Long givenId = 1L;
             BDDMockito
                     .given(repository.findById(givenId))
-                    .willReturn(Optional.of(new User(givenId,"AnjaliG","abcdefg","abc@123.com")));
+                    .willReturn(Optional.of(new User("AnjaliG","abcdefg","abc@123.com")));
 
             String expectedContent = "{\"userId\":1,\"username\":\"AnjaliG\",\"firstName\":null,\"lastName\":null,\"password\":\"abcdefg\",\"email\":\"abc@123.com\",\"birthdate\":null,\"gender\":null}";
             this.mvc.perform(MockMvcRequestBuilders
@@ -46,7 +46,7 @@ public class UserControllerTest extends TestCase {
 
         @Test
         public void testRegistration() throws Exception {
-            User user = new User(15L,"New User", "qwertyu", "qwerty@abc.com");
+            User user = new User("New User", "qwertyu", "qwerty@abc.com");
             BDDMockito
                     .given(repository.save(user))
                     .willReturn(user);

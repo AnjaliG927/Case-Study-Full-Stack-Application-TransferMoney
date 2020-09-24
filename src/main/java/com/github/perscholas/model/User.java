@@ -64,14 +64,11 @@ public class User {
     public User() {
     }
 
-    public User(String username, String firstName, String lastName,  String password, String email, Date birthdate, Character gender) {
+    public User(String username,String password, String email) {
         this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.password = password;
         this.email = email;
-        this.birthdate = birthdate;
-        this.gender = gender;
+
     }
 
 
