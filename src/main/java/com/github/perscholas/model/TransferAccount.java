@@ -15,7 +15,7 @@ public class TransferAccount {
     private String accountNum;
     private String preference;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private User user;
 
     public TransferAccount() {

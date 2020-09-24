@@ -28,10 +28,10 @@ public class TransactionDetails {
     @Temporal(TemporalType.DATE)
     private Date transactionDate;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne()
     private RecipientDetails recipientdetails;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.MERGE)
     private User user;
 
     public TransactionDetails() {

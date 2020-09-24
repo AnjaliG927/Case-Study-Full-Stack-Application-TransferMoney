@@ -10,6 +10,7 @@ import javax.validation.constraints.*;
 import java.util.Date;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -33,7 +34,7 @@ public class User {
     private String lastName;
 
     @NotNull
-    @Size(min = 8, max = 15)
+    @Size(min = 6, max = 15)
     @Pattern(regexp = "\\S+", message = "Spaces are not allowed")
     private String password;
 
@@ -53,10 +54,10 @@ public class User {
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL)
-   private Set<TransferAccount> accountSet;
+   private List<TransferAccount> accountList;
 
     @JsonIgnore
-    @OneToMany(cascade=CascadeType.ALL)
+    @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name="transaction_id")
     private List<TransactionDetails> transactionDetailsList;
 
@@ -78,12 +79,12 @@ public class User {
         this.transactionDetailsList = transactionDetailsList;
     }
 
-    public Set<TransferAccount> getAccountSet() {
-        return accountSet;
+    public List<TransferAccount> getAccountList() {
+        return accountList;
     }
 
-    public void setAccountSet(Set<TransferAccount> accountSet) {
-        this.accountSet = accountSet;
+    public void setAccountList(List<TransferAccount> accountList) {
+        this.accountList = accountList;
     }
 
 
@@ -169,5 +170,28 @@ public class User {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return userId.equals(user.userId) &&
+                username.equals(user.username) &&
+                firstName.equals(user.firstName) &&
+                lastName.equals(user.lastName) &&
+                password.equals(user.password) &&
+                passwordConfirm.equals(user.passwordConfirm) &&
+                email.equals(user.email) &&
+                birthdate.equals(user.birthdate) &&
+                gender.equals(user.gender) &&
+                accountList.equals(user.accountList) &&
+                transactionDetailsList.equals(user.transactionDetailsList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, username, firstName, lastName, password, passwordConfirm, email, birthdate, gender, accountList, transactionDetailsList);
     }
 }

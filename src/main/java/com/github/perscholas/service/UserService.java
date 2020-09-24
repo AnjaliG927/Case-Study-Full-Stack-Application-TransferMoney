@@ -3,8 +3,11 @@ package com.github.perscholas.service;
 
 import com.github.perscholas.model.User;
 import com.github.perscholas.repository.UserRepository;
+import com.sun.deploy.config.JREInfo;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 
@@ -66,7 +69,7 @@ public class UserService {
         return updateById(id, UserInDatabase);
     }
 
-@Transactional
+    @CacheEvict(allEntries = true)
     public void create(User user) {
         user.setPassword(user.getPassword());
         userRepository.save(user);

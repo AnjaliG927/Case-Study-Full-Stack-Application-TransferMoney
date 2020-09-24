@@ -7,7 +7,7 @@
 <jsp:include page="header_user.jsp"/>
 <div class="container">
 <form:form method="POST"   action="sendMoney" >
-<h2 style="left:50px;">Welcome! ${sessionScope.currentUser}</h2>
+<h2 style="left:50px;">Welcome! ${userFirstName}</h2>
 <h3 style="text-align:center">Send Money Online</h3>
 
     <div class="container">

@@ -46,7 +46,7 @@ public class UserControllerTest extends TestCase {
 
         @Test
         public void testRegistration() throws Exception {
-            User user = new User(9L,"New User", "qwertyu", "qwerty@abc.com");
+            User user = new User(15L,"New User", "qwertyu", "qwerty@abc.com");
             BDDMockito
                     .given(repository.save(user))
                     .willReturn(user);

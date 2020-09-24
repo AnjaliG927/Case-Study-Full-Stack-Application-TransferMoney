@@ -32,11 +32,12 @@ public class TransferController {
                                @RequestParam("toCountry") String toCountry,
                                @RequestParam("exchangeRate") String exchangeRate,
                               Model model) {
-        Integer amountInt=Integer.valueOf(amount.split(" ").);
+        exchangeRate=exchangeRate.split(" ")[0];
+        Integer exchangeInt=Integer.valueOf(exchangeRate);
         model.addAttribute("amount", amount);
         model.addAttribute("toCountry", toCountry);
-        model.addAttribute("exchangeRate", exchangeRate);
-        System.out.println("sout"+amount+toCountry);
+        model.addAttribute("exchangeRate", exchangeInt);
+
         return "checkoutForm";
     }
 
