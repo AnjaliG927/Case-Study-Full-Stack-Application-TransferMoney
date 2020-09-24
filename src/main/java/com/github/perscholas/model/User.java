@@ -11,7 +11,7 @@ import java.util.Date;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
+
 
 @Entity
 @Table(name="user_table")
@@ -64,12 +64,17 @@ public class User {
     public User() {
     }
 
-    public User(Long userId, String username, String password, String email) {
-        this.userId = userId;
+    public User(String username, String firstName, String lastName,  String password, String email, Date birthdate, Character gender) {
         this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
         this.email = email;
+        this.birthdate = birthdate;
+        this.gender = gender;
     }
+
+
 
     public List<TransactionDetails> getTransactionDetailsList() {
         return transactionDetailsList;
