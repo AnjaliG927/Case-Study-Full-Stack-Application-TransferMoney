@@ -33,7 +33,7 @@ public class TransferController {
                                @RequestParam("exchangeRate") String exchangeRate,
                               Model model) {
         exchangeRate=exchangeRate.split(" ")[0];
-        Integer exchangeInt=Integer.valueOf(exchangeRate);
+        Double exchangeInt=Double.valueOf(exchangeRate);
         model.addAttribute("amount", amount);
         model.addAttribute("toCountry", toCountry);
         model.addAttribute("exchangeRate", exchangeInt);
