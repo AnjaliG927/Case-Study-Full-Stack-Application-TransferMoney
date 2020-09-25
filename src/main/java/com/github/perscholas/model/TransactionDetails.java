@@ -11,7 +11,7 @@ import java.util.Set;
 @Table(name="transaction_details")
 public class TransactionDetails {
     @Id
-    @GeneratedValue(strategy =GenerationType.AUTO)
+    @GeneratedValue(strategy =GenerationType.IDENTITY)
     @Column(name="transaction_id")
     private Long transaction_id;
     @Column(name="exchangerate")

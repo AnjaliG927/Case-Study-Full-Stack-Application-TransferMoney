@@ -10,7 +10,7 @@ import java.util.Set;
 @Table(name="recipient_details")
 public class RecipientDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long recipientId;
     private String recipientname;
     private String recipientAccNum;

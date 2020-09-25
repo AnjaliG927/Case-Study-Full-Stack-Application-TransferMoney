@@ -1,8 +1,10 @@
 package com.github.perscholas.service;
 
+import com.github.perscholas.model.RecipientDetails;
 import com.github.perscholas.model.TransactionDetails;
 import com.github.perscholas.repository.TransactionDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -35,6 +37,9 @@ public class TransactionDetailsService {
         return transactionDetails;
 
     }
-
+    @CacheEvict(allEntries = true)
+    public void create(TransactionDetails transactionDetails) {
+        transactionDetailsRepository.save(transactionDetails);
+    }
 
 }

@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name="transfer_account")
 public class TransferAccount {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long accountId;
     private String bankName;
     private String accountNum;
