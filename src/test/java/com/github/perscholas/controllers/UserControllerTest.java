@@ -51,7 +51,7 @@ public class UserControllerTest extends TestCase {
                     .given(repository.save(user))
                     .willReturn(user);
 
-            String expectedContent="{\"userId\":9,\"username\":\"NewUser\",\"password\":qwertyu,\"email\":qwerty@abc.com}";
+            String expectedContent="{\"username\":\"NewUser\",\"password\":qwertyu,\"email\":qwerty@abc.com}";
             mvc.perform(MockMvcRequestBuilders
                     .post("/save")
                     .content(expectedContent)

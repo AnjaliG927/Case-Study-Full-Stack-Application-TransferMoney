@@ -26,16 +26,11 @@ public class UserController {
     private UserService userService;
     private UserValidator userValidator;
 
-
-
-
     @Autowired
     public UserController(UserService userService, UserValidator userValidator) {
         this.userService = userService;
         this.userValidator = userValidator;
-
-
-    }
+  }
 
     @InitBinder("user")
     public void customizeBinding(WebDataBinder binder) {
@@ -44,26 +39,6 @@ public class UserController {
         binder.registerCustomEditor(Date.class, "birthdate",
                 new CustomDateEditor(dateFormatter, true));
     }
-
-//    @PostMapping(value = "/save")
-//    public String registration(@Valid @ModelAttribute("userForm") User userForm,
-//                               BindingResult bindingResult, Model model) {
-//
-//        userValidator.validate(userForm, bindingResult);
-//        if (bindingResult.hasErrors()) {
-//            return "register";
-//        }
-////        User existing = userService.findByUsername(userForm.getUsername());
-////        if (existing != null) {
-////            bindingResult.rejectValue("username", null, "There is already an account registered with that username");
-////        } else {
-//            userService.create(userForm);
-//            model.addAttribute("message", "Successfully created your account!");
-//            return "login";
-////        }
-////        return "register";
-//    }
-
 
     @PostMapping(value = "/save")
     public String registration(@Valid @ModelAttribute("userForm") User userForm,
@@ -79,7 +54,7 @@ public class UserController {
 
     @GetMapping(value = "/show/{id}")
     public ResponseEntity<User> readById(@PathVariable Long id) {
-        return new ResponseEntity<>(userService.readById(id), HttpStatus.OK);
+        return new ResponseEntity<User>(userService.readById(id), HttpStatus.OK);
     }
 
 

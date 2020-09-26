@@ -27,6 +27,12 @@ public class TransferController {
         this.userService = userService;
     }
 
+
+    @GetMapping(value = "/sendMoney")
+    public String sendMoney(){
+        return "userDashboard";
+    }
+
     @PostMapping(value = "/sendMoney")
     public String checkoutForm(@RequestParam("fromAmount") String amount,
                                @RequestParam("toCountry") String toCountry,

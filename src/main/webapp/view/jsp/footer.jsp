@@ -1,10 +1,10 @@
- <footer class="container" >
-        <p>&copy; TransferMoney-2020</p>
+ <footer>
+        <p style="text-align: center; bottom:auto">&copy; TransferMoney-2020</p>
     </footer>
 
 
 
- <script src="/js/currency.js"></script>
+ <script src="${pageContext.request.contextPath}/js/currency.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

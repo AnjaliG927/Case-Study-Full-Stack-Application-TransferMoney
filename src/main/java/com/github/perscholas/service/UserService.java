@@ -43,10 +43,8 @@ public class UserService {
 
     public User updateById(Long id, User updatedData) {
         User userInDb = readById(id);
-        userInDb.setFirstName(updatedData.getFirstName());
-        userInDb.setLastName(updatedData.getLastName());
+        userInDb.setPassword(updatedData.getPassword());
         userInDb.setEmail(updatedData.getEmail());
-
         userInDb = userRepository.save(userInDb);
         return userInDb;
     }
