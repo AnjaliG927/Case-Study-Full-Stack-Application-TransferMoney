@@ -22,7 +22,7 @@ to view the TransferMoney application.
 ### Functionality:
 * Once the user land on the welcome page the user can register using Sign Up link and Sign In.
 * You can verify the record being created with new credential by navigating to http://localhost:8080/h2-console and by connecting to H2 database.
-* To view the <b>Transaction History</b> please sign in as username:TransferMoney and password:TransferMoney
+* To view the <b>Transaction History</b> please sign in as **username:TransferMoney & password:TransferMoney**
 * Send Money page will allow the users to select the receiving country and display current exchange rate.
 * Upon clicking on Send Money button user will be navigated to checkout form where user can see the order summary and will have to put in the credentials to send money.  
 
