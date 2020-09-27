@@ -1,5 +1,5 @@
 INSERT INTO user_table (username,firstName,lastName,password,email,birthdate,gender)
-VALUES('AnjaliG','Anjali','G','abcdefg','abc@123.com',DATE '2013-12-3','F');
+VALUES('TransferMoney','Transfer','G','TransferMoney','abc@123.com',DATE '2013-12-3','F');
 INSERT INTO user_table (username,firstName,lastName,password,email,birthdate,gender)
 VALUES('Sammyk','Sammy','K','qwertyu','def@456.com',DATE '1978-2-8','M');
 INSERT INTO user_table (username,firstName,lastName,password,email,birthdate,gender)
