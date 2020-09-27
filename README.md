@@ -3,7 +3,7 @@
 * **Description**: This application uses SpringBoot, Maven, JSP and consumes a JSON from REST Web Service for currency exchange rate for different countries and uses in memory H2 database.
 * **Link to trello board**-https://trello.com/b/ZqEw5cGu/case-study
 * **Link to wireframes**-https://balsamiq.cloud/suztllj/pfxgm3o/rAC71
-* **Database UML diagram**- You can find the database UML diagram in trello board.
+* **Database UML diagram**- The database UML diagram is in trello board.
 
 ## Clone the project
 * Begin by forking this project into a personal repository.
