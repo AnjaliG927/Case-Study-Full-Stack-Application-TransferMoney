@@ -73,6 +73,12 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <!-- Need this for Stripe API -->
+        <dependency>
+            <groupId>com.stripe</groupId>
+            <artifactId>stripe-java</artifactId>
+            <version>7.26.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

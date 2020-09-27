@@ -1,6 +1,8 @@
 # Spring Boot With Full stack Application-TransferMoney
 * **Objective** - The purpose of this repository is to demonstrate the simulation of Online Money Transfer portal.
 * **Description**: This application uses SpringBoot, Maven, JSP and consumes a JSON from REST Web Service for currency exchange rate for different countries and uses in memory H2 database.
+* **Link to trello board**-https://trello.com/b/ZqEw5cGu/case-study
+
 ## Clone the project
 * Begin by forking this project into a personal repository.
 * To do this, click the Fork button located at the top right of this page.
@@ -24,6 +26,9 @@ to view the TransferMoney application.
 * You can verify the record being created with new credential by navigating to http://localhost:8080/h2-console and by connecting to H2 database.
 * To view the <b>Transaction History</b> please sign in as **username:TransferMoney & password:TransferMoney**
 * Send Money page will allow the users to select the receiving country and display current exchange rate.
-* Upon clicking on Send Money button user will be navigated to checkout form where user can see the order summary and will have to put in the credentials to send money.  
+* Upon clicking on Send Money button user will be navigated to checkout form where user can see the order summary and will have to put in the credentials to send money. 
+* The payment using Stripe API is still in progress. 
+
+
 
 
