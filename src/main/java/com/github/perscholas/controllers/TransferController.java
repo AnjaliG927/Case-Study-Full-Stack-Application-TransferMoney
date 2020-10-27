@@ -27,7 +27,12 @@ public class TransferController {
         this.userService = userService;
     }
 
-
+@GetMapping(value="/payment")
+public String paymentPage(@RequestParam("totalAmount") String totalAmount,Model model){
+    System.out.println("transfer control payment");
+       // model.addAttribute("totalPayment",totalAmount);
+        return "payment";
+}
     @GetMapping(value = "/sendMoney")
     public String sendMoney(){
         return "userDashboard";
@@ -43,7 +48,7 @@ public class TransferController {
         model.addAttribute("amount", amount);
         model.addAttribute("toCountry", toCountry);
         model.addAttribute("exchangeRate", exchangeInt);
-
+        System.out.println("transfer control checkout");
         return "checkoutForm";
     }
 
@@ -55,5 +60,4 @@ public class TransferController {
         model.addAttribute("list", transactionList);
         return "transferHistory";
     }
-
 }

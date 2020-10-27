@@ -12,6 +12,9 @@
     <link href="${jstlCss}" rel="stylesheet"/>
     <c:url value="/css/form-validation.css" var="css"/>
     <link href="${css}" rel="stylesheet"/>
+    <script src="${pageContext.request.contextPath}/js/client.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+
 </head>
 <body>
 
